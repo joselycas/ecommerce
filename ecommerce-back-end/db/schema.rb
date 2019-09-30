@@ -19,14 +19,14 @@ ActiveRecord::Schema.define(version: 2019_09_30_145745) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "product_id_id"
-    t.integer "user_id_id"
+    t.integer "product_id"
+    t.integer "user_id"
     t.integer "quantity"
     t.decimal "sub_total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id_id"], name: "index_orders_on_product_id_id"
-    t.index ["user_id_id"], name: "index_orders_on_user_id_id"
+    t.index ["product_id"], name: "index_orders_on_product_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "product_categories", force: :cascade do |t|
