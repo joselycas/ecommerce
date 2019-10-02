@@ -1,16 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './NavBar'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        Welcome to KBH discounted Kitchen and Bath Products
       </header>
+        <NavBar/>
     </div>
   );
 }
