@@ -7,6 +7,7 @@ import Kitchen from './components/Kitchen'
 import Bathroom from './components/Bathroom'
 import Inspiration from './components/Inspiration'
 import Cart from './containers/Cart'
+import Register from './containers/Register'
 
 
 const Main = () => {
@@ -14,6 +15,7 @@ const Main = () => {
     return(
       <Switch>
         <Route path='/home' component={Home} />
+        <Route path='/register' component={Register}/>
         <Route path='/login' component={Login}/>
         <Route path='/logout' component={Logout}/>
         <Route path='/kitchen' component={Kitchen}/>

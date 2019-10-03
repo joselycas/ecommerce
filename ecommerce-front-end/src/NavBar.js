@@ -13,6 +13,7 @@ return (
       <Nav className="mr-auto">
           <Navbar.Brand href="#home">LOGO </Navbar.Brand>
         <Nav.Link href="/home">Home</Nav.Link> |
+        <Nav.Link href="/register">Register</Nav.Link> | 
         <Nav.Link href="/login">Login</Nav.Link> |
         <Nav.Link href="/logout">Logout</Nav.Link> |
         <Nav.Link href="/kitchen">Kitchen</Nav.Link> |
