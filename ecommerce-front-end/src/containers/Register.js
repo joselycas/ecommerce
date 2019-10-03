@@ -5,13 +5,114 @@ class Register extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      username: "",
+      email: "",
+      password:"",
+      errors:[]
+    };
   }
 
-  submitRegister(e) {}
+  submitRegister = (e) => {
+    if (this.state.username == "") {
+      this.showValidationErr("username", "Username Cannot be empty!");
+   }
+   if (this.state.email == "") {
+     this.showValidationErr("email", "Email Cannot be empty!");
+   }
+   if (this.state.password == "") {
+     this.showValidationErr("password", "Password Cannot be empty!");
+   }
+  }
+
+  showValidationErr = (elem, msg) => {
+    this.setState((prevState) => ({
+      errors: [
+      ...prevState.errors, {
+        elem,
+        msg
+      }
+      ]
+    })
+  );
+}
+//Remove a specific element from the array
+clearValidationErr = (elem) => {
+  this.setState((prevState) => {
+    let newArr = [];
+    //Add all elements from the prev array to the new one that has a different element
+    for (let err of prevState.errors) {
+      if (elem != err.elm) {
+        newArr.push(err);
+      }
+    }
+    return {errors: newArr};
+  });
+}
+
+onUsernameChange =(e) => {
+  this.setState({username: e.target.value});
+  //We want to clear the error when ever the user type something new
+  this.clearValidationErr("username");
+}
+
+onEmailChange = (e) => {
+  this.setState({email: e.target.value});
+  this.clearValidationErr("email");
+}
+
+onPasswordChange = (e) => {
+  this.setState({password: e.target.value});
+  this.clearValidationErr("password");
+  this.setState({pwdState: "weak"});
+  if (e.target.value.length > 8) {
+    this.setState({pwdState: "medium"});
+  } else if (e.target.value.length > 12) {
+    this.setState({pwdState: "strong"});
+  }
+}
+
+
 
   render() {
+    //NULL by default (help us check when rendering)
+    let usernameErr = null,
+      passwordErr = null,
+      emailErr = null;
+    //Loop and find which ones has the error
+    for (let err of this.state.errors) {
+      //Assign the validation error message
+      if (err.elem == "username") {
+        usernameErr = err.msg;
+      }
+      if (err.elem == "password") {
+        passwordErr = err.msg;
+      }
+      if (err.elem == "email") {
+        emailErr = err.msg;
+      }
+      //No (else if or else) statements cause we need to check for all possible elements
+    }
+
+    let pwdWeak = false,
+    pwdMedium = false,
+    pwdStrong = false;
+    //Weak password set onlt the pwdWeak to true, cause render only the first bar
+    if (this.state.pwdState == "weak") {
+      pwdWeak = true;
+      } else if (this.state.pwdState == "medium") {
+        //Medium pwd then render the weak and medium bars
+        pwdWeak = true;
+        pwdMedium = true;
+      } else if (this.state.pwdState == "strong") {
+        //Strong, render all the previoud bars
+        pwdWeak = true;
+        pwdMedium = true;
+        pwdStrong = true;
+    }
+
     return (
+
       <div className="inner-container">
         <div className="header">
           Register
@@ -24,13 +125,21 @@ class Register extends React.Component {
               type="text"
               name="username"
               className="login-input"
-              placeholder="Username"/>
+              placeholder="Username"
+              onChange={this.onUsernameChange}
+              />
+              <small className="danger-error">{usernameErr ? usernameErr : ""}</small>
           </div>
 
           <div className="input-group">
             <label htmlFor="email">Email</label>
-            <input type="text" name="email" className="login-input" placeholder="Email"/>
+            <input type="text" name="email"
+            className="login-input"
+            placeholder="Email"
+            onChange={this.onEmailChange}/>
+            <small className="danger-error">{emailErr ? emailErr : ""}</small>
           </div>
+
 
           <div className="input-group">
             <label htmlFor="password">Password</label>
@@ -38,14 +147,15 @@ class Register extends React.Component {
               type="password"
               name="password"
               className="login-input"
-              placeholder="Password"/>
+              placeholder="Password"
+              onChange={this.onPasswordChange}/>
+              <small className="danger-error">{passwordErr ? passwordErr : ""}</small>
           </div>
+
           <button
             type="button"
             className="login-btn"
-            onClick={this
-            .submitRegister
-            .bind(this)}>Register</button>
+            onClick={this.submitRegister}>Register</button>
         </div>
       </div>
     );
@@ -53,3 +163,7 @@ class Register extends React.Component {
 }
 
 export default Register
+
+
+
+//Do it for all the other inputs

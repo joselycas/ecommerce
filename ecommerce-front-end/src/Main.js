@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {Route, Switch} from 'react-router-dom'
 import Home from './Home'
 import Login from './containers/Login'
@@ -8,23 +8,30 @@ import Bathroom from './components/Bathroom'
 import Inspiration from './components/Inspiration'
 import Cart from './containers/Cart'
 import Register from './containers/Register'
+import ToggleForm from './containers/ToggleForm'
 
 
-const Main = () => {
 
-    return(
-      <Switch>
-        <Route path='/home' component={Home} />
-        <Route path='/register' component={Register}/>
-        <Route path='/login' component={Login}/>
-        <Route path='/logout' component={Logout}/>
-        <Route path='/kitchen' component={Kitchen}/>
-        <Route path='/bathroom' component={Bathroom}/>
-        <Route path='/inspiration' component={Inspiration}/>
-        <Route path='/cart' component={Cart}/>
-      </Switch>
+class Main extends Component {
 
-    )
+
+    render(){
+      return(
+          <Switch>
+            <Route path='/home' component={Home} />
+            <Route path='/register' component={Register}/>
+            <Route path='/login' component={Login}/>
+            <Route path='/logout' component={Logout}/>
+            <Route path='/kitchen' component={Kitchen}/>
+            <Route path='/bathroom' component={Bathroom}/>
+            <Route path='/inspiration' component={Inspiration}/>
+            <Route path='/cart' component={Cart}/>
+            <Route path='/toggleForm' component={ToggleForm}/>
+          </Switch>
+
+      )
+  }
+
 }
 
 export default Main;
