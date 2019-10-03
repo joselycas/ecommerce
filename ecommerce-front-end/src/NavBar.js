@@ -12,10 +12,13 @@ return (
 
       <Nav className="mr-auto">
           <Navbar.Brand href="#home">LOGO </Navbar.Brand>
-        <Nav.Link href="#home">Home</Nav.Link> |
-        <Nav.Link href="#link">Kitchen</Nav.Link> |
-        <Nav.Link href="#link">Bathroom</Nav.Link> |
-        <Nav.Link href="#link">Inspiration Room</Nav.Link>
+        <Nav.Link href="/home">Home</Nav.Link> |
+        <Nav.Link href="/login">Login</Nav.Link> |
+        <Nav.Link href="/logout">Logout</Nav.Link> |
+        <Nav.Link href="/kitchen">Kitchen</Nav.Link> |
+        <Nav.Link href="/bathroom">Bathroom</Nav.Link> |
+        <Nav.Link href="/inspiration">Inspiration Room</Nav.Link> |
+        <Nav.Link href="/cart">Cart</Nav.Link>
         </Nav>
   </Navbar>
 
