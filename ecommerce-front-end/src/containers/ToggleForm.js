@@ -24,13 +24,13 @@ class ToggleForm extends Component {
         onClick={this.showLoginBox}>
         Login
       </div>
-
       <div
         className={"controller " + (this.state.isRegisterOpen ? "selected-controller" : "")}
-        onClick={this  .showRegisterBox}>
+        onClick={this.showRegisterBox}>
         Register
       </div>
     </div>
+
       <div className="box-container">
         <h1>Toggle Form</h1>
          {this.state.isLoginOpen && <Login/>}

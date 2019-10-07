@@ -1,4 +1,6 @@
 import React from 'react'
+import {Form, Button, Col} from 'react-bootstrap'
+
 
 
 class Register extends React.Component {
@@ -73,7 +75,6 @@ onPasswordChange = (e) => {
 }
 
 
-
   render() {
     //NULL by default (help us check when rendering)
     let usernameErr = null,
@@ -112,55 +113,63 @@ onPasswordChange = (e) => {
     }
 
     return (
-
+    <Form>
       <div className="inner-container">
         <div className="header">
-          Register
+          Welcome! Please Sign Up!
         </div>
         <div className="box">
 
           <div className="input-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              name="username"
+          <Form.Row>
+            <Col>
+              <Form.Label htmlFor="username">Username</Form.Label>
+              <Form.Control
+                type="text"
+                name="username"
+                className="login-input"
+                placeholder="Username"
+                onChange={this.onUsernameChange}
+                />
+                <small className="danger-error">{usernameErr ? usernameErr : ""}</small>
+            </Col>
+            <Col>
+              <Form.Label htmlFor="email">Email</Form.Label>
+              <Form.Control
+               type="text" name="email"
               className="login-input"
-              placeholder="Username"
-              onChange={this.onUsernameChange}
+              placeholder="Email"
+              onChange={this.onEmailChange}
               />
-              <small className="danger-error">{usernameErr ? usernameErr : ""}</small>
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="email">Email</label>
-            <input type="text" name="email"
-            className="login-input"
-            placeholder="Email"
-            onChange={this.onEmailChange}/>
-            <small className="danger-error">{emailErr ? emailErr : ""}</small>
-          </div>
-
-
-          <div className="input-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              className="login-input"
-              placeholder="Password"
-              onChange={this.onPasswordChange}/>
-              <small className="danger-error">{passwordErr ? passwordErr : ""}</small>
-          </div>
-
-          <button
-            type="button"
-            className="login-btn"
-            onClick={this.submitRegister}>Register</button>
+              <small className="danger-error">{emailErr ? emailErr : ""}</small>
+            </Col>
+            <Col>
+              <Form.Label htmlFor="password">Password</Form.Label>
+              <input
+                type="password"
+                name="password"
+                className="login-input"
+                placeholder="Password"
+                onChange={this.onPasswordChange}/>
+                <small className="danger-error">{passwordErr ? passwordErr : ""}</small>
+            </Col>
+            <Col>
+            <button
+              type="button"
+              className="login-btn"
+              onClick={this.submitRegister}>Register
+            </button>
+          </Col>
+          </Form.Row>
         </div>
+
       </div>
-    );
+    </div>
+    </Form>
+      );
+    }
   }
-}
+
 
 export default Register
 
