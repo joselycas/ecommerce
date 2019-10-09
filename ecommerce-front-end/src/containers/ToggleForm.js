@@ -32,7 +32,7 @@ class ToggleForm extends Component {
     </div>
 
       <div className="box-container">
-        <h1>Toggle Form</h1>
+        <h1>Welcome</h1>
          {this.state.isLoginOpen && <Login/>}
          {this.state.isRegisterOpen && <Register/>}
       </div>

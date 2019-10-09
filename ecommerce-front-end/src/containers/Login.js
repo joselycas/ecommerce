@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Form, Button, Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
+import {logIn} from '../actions/logIn'
 
 
 
@@ -16,12 +17,20 @@ class Login extends Component {
   }
 
   submitLogin = (e) => {
+    e.preventDefault()
     if (this.state.username == "") {
       this.showValidationErr("username", "Username Cannot be empty!");
    }
    if (this.state.password == "") {
      this.showValidationErr("password", "Password Cannot be empty!");
    }
+    this.props.logIn(this.state)
+
+
+   this.setState({
+    username: '',
+    password: ''
+    })
   }
 
   showValidationErr = (elem, msg) => {
@@ -129,4 +138,4 @@ clearValidationErr = (elem) => {
 
 
 
-export default connect()(Login)
+export default connect(null, {logIn})(Login)
