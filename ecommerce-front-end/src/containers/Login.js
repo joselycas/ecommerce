@@ -25,8 +25,6 @@ class Login extends Component {
      this.showValidationErr("password", "Password Cannot be empty!");
    }
     this.props.logIn(this.state)
-
-
    this.setState({
     username: '',
     password: ''

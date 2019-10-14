@@ -1,5 +1,6 @@
 import React from 'react'
 import {Form, Button, Col} from 'react-bootstrap'
+import {connect} from 'react-redux'
 
 
 
@@ -171,7 +172,7 @@ onPasswordChange = (e) => {
   }
 
 
-export default Register
+export default connect(null)(Register)
 
 
 

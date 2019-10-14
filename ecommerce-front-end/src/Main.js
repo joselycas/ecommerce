@@ -5,7 +5,6 @@ import Login from './containers/Login'
 import Logout from './containers/Logout'
 import Kitchen from './components/Kitchen'
 import Bathroom from './components/Bathroom'
-import Inspiration from './components/Inspiration'
 import Cart from './containers/Cart'
 import Register from './containers/Register'
 import ToggleForm from './containers/ToggleForm'
@@ -24,7 +23,6 @@ class Main extends Component {
             <Route path='/logout' component={Logout}/>
             <Route path='/kitchen' component={Kitchen}/>
             <Route path='/bathroom' component={Bathroom}/>
-            <Route path='/inspiration' component={Inspiration}/>
             <Route path='/cart' component={Cart}/>
             <Route path='/toggleForm' component={ToggleForm}/>
           </Switch>
