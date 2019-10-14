@@ -131,6 +131,7 @@ onPasswordChange = (e) => {
                 className="login-input"
                 placeholder="Username"
                 onChange={this.onUsernameChange}
+                value={this.state.username}
                 />
                 <small className="danger-error">{usernameErr ? usernameErr : ""}</small>
             </Col>
@@ -141,6 +142,7 @@ onPasswordChange = (e) => {
               className="login-input"
               placeholder="Email"
               onChange={this.onEmailChange}
+              value={this.state.email}
               />
               <small className="danger-error">{emailErr ? emailErr : ""}</small>
             </Col>
@@ -151,7 +153,8 @@ onPasswordChange = (e) => {
                 name="password"
                 className="login-input"
                 placeholder="Password"
-                onChange={this.onPasswordChange}/>
+                onChange={this.onPasswordChange}
+                value={this.state.password}/>
                 <small className="danger-error">{passwordErr ? passwordErr : ""}</small>
             </Col>
             <Col>
