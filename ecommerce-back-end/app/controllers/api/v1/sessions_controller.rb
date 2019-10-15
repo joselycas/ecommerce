@@ -10,8 +10,4 @@ def create
       flash.now[:alert] = "no user found"
     end
   end
-
-
-
-
 end
