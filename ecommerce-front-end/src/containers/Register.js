@@ -1,6 +1,7 @@
 import React from 'react'
 import {Form, Button, Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
+import {register} from '../actions/register'
 
 
 
@@ -26,6 +27,13 @@ class Register extends React.Component {
    if (this.state.password == "") {
      this.showValidationErr("password", "Password Cannot be empty!");
    }
+   this.props.register(this.state)
+   this.setState({
+     username: "",
+     email: "",
+     password:""
+   })
+
   }
 
   showValidationErr = (elem, msg) => {
@@ -175,7 +183,7 @@ onPasswordChange = (e) => {
   }
 
 
-export default connect(null)(Register)
+export default connect(null, {register})(Register)
 
 
 

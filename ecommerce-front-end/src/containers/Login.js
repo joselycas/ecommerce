@@ -106,12 +106,12 @@ clearValidationErr = (elem) => {
               <small className="danger-error">{usernameErr ? usernameErr : ""}</small>
             </Col>
           <Col>
-            <Form.Label htmlFor="password">Password</Form.Label>
+            <Form.Label htmlFor="current-password">Password</Form.Label>
             <Form.Control
-              type="password"
-              name="password"am
+              type="current-password"
+              name="current-password"
               className="login-input"
-              placeholqwder="Password"
+              placeholder="Password"
               onChange={this.onPasswordChange}/>
               <small className="danger-error">{passwordErr ? passwordErr : ""}</small>
             </Col>
