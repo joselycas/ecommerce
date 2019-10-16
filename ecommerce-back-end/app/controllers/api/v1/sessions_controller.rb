@@ -7,7 +7,7 @@ def create
       redirect_to root_path, notice:
       "Welcome #{user_id}, you've successfully signed in"
     else
-      flash.now[:alert] = "no user found"
+      flash[:alert] = "no user found"
     end
   end
 end
