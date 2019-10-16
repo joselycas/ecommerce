@@ -1,9 +1,8 @@
 
 const initialState = {
   username: "",
-  emai: "",
+  email: "",
   password: "",
-
 }
 
 export default (state=initialState, action) => {

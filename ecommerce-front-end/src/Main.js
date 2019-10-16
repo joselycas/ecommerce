@@ -3,8 +3,7 @@ import {Route, Switch} from 'react-router-dom'
 import Home from './Home'
 import Login from './containers/Login'
 import Logout from './containers/Logout'
-import Kitchen from './components/Kitchen'
-import Bathroom from './components/Bathroom'
+import ProductPage from './components/ProductPage'
 import Cart from './containers/Cart'
 import Register from './containers/Register'
 import ToggleForm from './containers/ToggleForm'
@@ -21,8 +20,7 @@ class Main extends Component {
             <Route path='/register' component={Register}/>
             <Route path='/login' component={Login}/>
             <Route path='/logout' component={Logout}/>
-            <Route path='/kitchen' component={Kitchen}/>
-            <Route path='/bathroom' component={Bathroom}/>
+            <Route path='/producrs' component={ProductPage}/>
             <Route path='/cart' component={Cart}/>
             <Route path='/toggleForm' component={ToggleForm}/>
           </Switch>

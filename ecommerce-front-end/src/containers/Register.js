@@ -2,6 +2,7 @@ import React from 'react'
 import {Form, Button, Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {register} from '../actions/register'
+import {BrowserRouter} from 'react-router-dom';
 
 
 
@@ -27,7 +28,7 @@ class Register extends React.Component {
    if (this.state.password == "") {
      this.showValidationErr("password", "Password Cannot be empty!");
    }
-   this.props.register(this.state)
+   this.props.register(this.state, this.props.history)
    this.setState({
      username: "",
      email: "",
@@ -155,12 +156,12 @@ onPasswordChange = (e) => {
               <small className="danger-error">{emailErr ? emailErr : ""}</small>
             </Col>
             <Col>
-              <Form.Label htmlFor="password">Password</Form.Label>
+              <Form.Label htmlFor="current-password">Password</Form.Label>
               <input
-                type="password"
-                name="password"
+                type="current-password"
+                name="current-password"
                 className="login-input"
-                placeholder="Password"
+                placeholder="current-password"
                 onChange={this.onPasswordChange}
                 value={this.state.password}/>
                 <small className="danger-error">{passwordErr ? passwordErr : ""}</small>
