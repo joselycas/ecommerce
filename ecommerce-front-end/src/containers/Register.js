@@ -11,7 +11,7 @@ class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      name: "",
       email: "",
       password:"",
       errors:[]
@@ -19,7 +19,7 @@ class Register extends React.Component {
   }
 
   submitRegister = (e) => {
-    if (this.state.username == "") {
+    if (this.state.name == "") {
       this.showValidationErr("username", "Username Cannot be empty!");
    }
    if (this.state.email == "") {
@@ -28,9 +28,9 @@ class Register extends React.Component {
    if (this.state.password == "") {
      this.showValidationErr("password", "Password Cannot be empty!");
    }
-   this.props.register(this.state, this.props.history)
+   this.props.register({user:this.state}, this.props.history)
    this.setState({
-     username: "",
+     name: "",
      email: "",
      password:""
    })
@@ -63,7 +63,7 @@ clearValidationErr = (elem) => {
 }
 
 onUsernameChange =(e) => {
-  this.setState({username: e.target.value});
+  this.setState({name: e.target.value});
   //We want to clear the error when ever the user type something new
   this.clearValidationErr("username");
 }
@@ -147,11 +147,11 @@ onPasswordChange = (e) => {
             <Col>
               <Form.Label htmlFor="email">Email</Form.Label>
               <Form.Control
-               type="text" name="email"
-              className="login-input"
-              placeholder="Email"
-              onChange={this.onEmailChange}
-              value={this.state.email}
+                 type="text" name="email"
+                 className="login-input"
+                 placeholder="Email"
+                 onChange={this.onEmailChange}
+                 value={this.state.email}
               />
               <small className="danger-error">{emailErr ? emailErr : ""}</small>
             </Col>
