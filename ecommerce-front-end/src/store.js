@@ -1,12 +1,12 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk';
-import logIn from './reducers/logIn';
+import logInUser from './reducers/logIn';
 import register from './reducers/register';
 
 
 const reducer =
   combineReducers({
-    logIn,
+    logInUser,
     register
   });
 

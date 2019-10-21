@@ -1,13 +1,12 @@
 class Api::V1::SessionsController < ApplicationController
 
 def create
-  user = User.find(params[:user_id])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to root_path, notice:
-      "Welcome #{user_id}, you've successfully signed in"
+  @user = User.find(params[:user_id])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      render json: @user
     else
-      flash[:alert] = "no user found"
+      render json: {error: "please fill out all sections"}
     end
   end
 end

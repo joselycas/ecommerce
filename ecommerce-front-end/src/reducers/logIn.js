@@ -1,12 +1,7 @@
-const initialState = {
-  username: '',
-  password: ''
-}
-
-export default (state = initialState, action) => {
+export default function logInUser(state = [], action) {
   switch (action.type) {
-    case "UPDATE_LOGIN":
-      return action.formData
+    case "LOGIN_USER":
+      return [...state, action.payload]
     default:
       return state
   }

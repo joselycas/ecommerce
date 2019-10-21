@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import {Form, Button, Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {logIn} from '../actions/logIn'
+import {BrowserRouter} from 'react-router-dom';
+
 
 
 
@@ -24,7 +26,7 @@ class Login extends Component {
    if (this.state.password == "") {
      this.showValidationErr("password", "Password Cannot be empty!");
    }
-    this.props.logIn(this.state)
+    this.props.logIn({user:this.state}, this.props.history)
    this.setState({
     username: '',
     password: ''
