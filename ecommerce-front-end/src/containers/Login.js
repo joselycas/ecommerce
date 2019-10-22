@@ -12,7 +12,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      email: "",
       password:"",
       errors:[]
     };
@@ -20,15 +20,15 @@ class Login extends Component {
 
   submitLogin = (e) => {
     e.preventDefault()
-    if (this.state.username == "") {
-      this.showValidationErr("username", "Username Cannot be empty!");
+    if (this.state.email == "") {
+      this.showValidationErr("email", "email Cannot be empty!");
    }
    if (this.state.password == "") {
      this.showValidationErr("password", "Password Cannot be empty!");
    }
-    this.props.logIn({user:this.state}, this.props.history)
+    this.props.logIn(this.state, this.props.history)
    this.setState({
-    username: '',
+    email: '',
     password: ''
     })
   }
@@ -59,9 +59,9 @@ clearValidationErr = (elem) => {
 }
 
   onUsernameChange = (e) => {
-    this.setState({username: e.target.value});
+    this.setState({email: e.target.value});
     //We want to clear the error when ever the user type something new
-    this.clearValidationErr("username");
+    this.clearValidationErr("email");
   }
 
   onPasswordChange = (e) => {
@@ -71,13 +71,13 @@ clearValidationErr = (elem) => {
 
   render() {
     //NULL by default (help us check when rendering)
-    let usernameErr = null,
+    let emailErr = null,
       passwordErr = null
     //Loop and find which ones has the error
     for (let err of this.state.errors) {
       //Assign the validation error message
-      if (err.elem == "username") {
-        usernameErr = err.msg;
+      if (err.elem == "email") {
+        emailErr = err.msg;
       }
       if (err.elem == "password") {
         passwordErr = err.msg;
@@ -98,14 +98,14 @@ clearValidationErr = (elem) => {
           <div className="input-group">
           <Form.Row>
           <Col>
-            <Form.Label htmlFor="username">Username</Form.Label>
+            <Form.Label htmlFor="email">email</Form.Label>
             <Form.Control
               type="text"
-              name="username"
+              name="email"
               className="login-input"
-              placeholder="Username"
+              placeholder="email"
               onChange={this.onUsernameChange}/>
-              <small className="danger-error">{usernameErr ? usernameErr : ""}</small>
+              <small className="danger-error">{emailErr ? emailErr : ""}</small>
             </Col>
           <Col>
             <Form.Label htmlFor="current-password">Password</Form.Label>
