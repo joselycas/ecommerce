@@ -6,6 +6,7 @@ import ProductPage from './components/ProductPage'
 import Cart from './containers/Cart'
 import Register from './containers/Register'
 import ToggleForm from './containers/ToggleForm'
+import User from './containers/User'
 
 
 
@@ -22,6 +23,7 @@ class Main extends Component {
             <Route path='/producrs' component={ProductPage}/>
             <Route path='/cart' component={Cart}/>
             <Route path='/toggleForm' component={ToggleForm}/>
+            <Route path='/users/:id' component={User}/>
           </Switch>
 
       )
