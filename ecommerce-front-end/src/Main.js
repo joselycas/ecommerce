@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Route, Switch} from 'react-router-dom'
+import {connect} from 'react-redux'
 import Home from './Home'
 import Login from './containers/Login'
 import ProductPage from './components/ProductPage'
