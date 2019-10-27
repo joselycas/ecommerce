@@ -1,7 +1,7 @@
-export default function logInUser(state = [], action) {
+export default function logInUser(state ={currentUser:null}, action) {
   switch (action.type) {
     case "LOGIN_USER":
-      return [...state, action.payload]
+      return {currentUser: action.payload}
     default:
       return state
   }
