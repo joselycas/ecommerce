@@ -4,21 +4,18 @@ import {currentUser} from '../actions/currentUser'
 
 class User extends React.Component {
 
-  // constructor(props){
-  //   super(props);
-  //   this.state = {
-  //     user: null
-  //   }
-  // }
-
   componentDidMount(){
     this.props.currentUser()
   }
 
+
+
+
   render(){
+    console.log(this.props.currentUser.name)
   return (
     <div>
-      <h1>Hi {currentUser}</h1>
+      <h1>Hi {this.props.currentUser.name} </h1>
 
     </div>
   )
@@ -32,10 +29,11 @@ class User extends React.Component {
       currentUser: () => dispatch(currentUser())
     }
   }
-// const mapStateToProps = (state) => {
-//   return{
-//     state:state.user
-//   }
-// }
 
-export default connect(null, mapDispatchToProps)(User);
+  const mapStateToProps = state => {
+    return{
+      currentUser: state.currentUser
+    }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(User);

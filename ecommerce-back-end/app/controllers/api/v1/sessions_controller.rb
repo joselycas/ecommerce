@@ -6,7 +6,7 @@ def create
       session[:user_id] = @user.id
       render json: @user
     else
-      render json: {error: "please fill out all sections"}
+      render json: {error: "Email or password incorrect. Please try again."}
     end
   end
 

@@ -12,10 +12,17 @@ export function logIn(formData, history) {
   })
   .then(res => res.json())
   .then(user => {
+    if (user.error) {
+        alert(user.error)
+
+      } else {
     dispatch({
     type: 'LOGIN_USER',
     payload: user
   })
-  history.push(`/users/${user.id}`)})
-  }
+    history.push(`/users/${user.id}`)
+    }
+  // history.push(`/users/${user.id}`)
+  })
+ }
 }
