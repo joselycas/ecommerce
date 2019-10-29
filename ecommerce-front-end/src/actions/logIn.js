@@ -1,8 +1,11 @@
 import {BrowserRouter} from 'react-router-dom';
+import {setCurrentUser} from './currentUser'
 
 export function logIn(formData, history) {
   return (dispatch) => {
   fetch('http://localhost:3000/api/v1/login', {
+    formData: 'include',
+    method: "GET",
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
@@ -15,14 +18,15 @@ export function logIn(formData, history) {
     if (user.error) {
         alert(user.error)
 
-      } else {
-    dispatch({
-    type: 'LOGIN_USER',
-    payload: user
+    } else {
+       // localStorage.setItem("currentUserId", user.id)
+        dispatch(setCurrentUser(user.data))
+        dispatch({
+        type: 'LOGIN_USER',
+        payload: user
   })
     history.push(`/users/${user.id}`)
     }
-  // history.push(`/users/${user.id}`)
   })
  }
 }

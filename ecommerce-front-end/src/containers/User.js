@@ -4,15 +4,28 @@ import {currentUser} from '../actions/currentUser'
 
 class User extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      currentUser: []
+    }
+  }
+
   componentDidMount(){
     this.props.currentUser()
+  }
+
+
+  componentWillMount(nextProps, nextState){
+    //commented this out because nextState was causing an error
+    // localStorage.setItem("user", JSON.stringify(nextState.currentUser))
   }
 
 
 
 
   render(){
-    console.log(this.props.currentUser.name)
+    console.log(this.state)
   return (
     <div>
       <h1>Hi {this.props.currentUser.name} </h1>
@@ -32,7 +45,7 @@ class User extends React.Component {
 
   const mapStateToProps = state => {
     return{
-      currentUser: state.currentUser
+      currentUser: state.user
     }
   }
 

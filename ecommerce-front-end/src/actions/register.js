@@ -13,12 +13,17 @@ export function register(formData, history) {
   })
   .then(res => res.json())
   .then(user => {
-    dispatch({
-    type: 'ADD_USER',
-    payload: formData
+    if (user.error) {
+        alert(user.error)
+    }else {
+      dispatch({
+      type: 'ADD_USER',
+      payload: formData
+      })
+      history.push(`/users/${user.id}`)
+    }
   })
-  history.push(`/users/${user.id}`)})
-  }
+ }
 }
 
 
