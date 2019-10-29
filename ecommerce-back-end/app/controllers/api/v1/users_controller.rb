@@ -17,7 +17,7 @@ class Api::V1::UsersController < ApplicationController
       session[:user_id] = @user.id
       render json: @user
     else
-      render json: {error: "please fill out all sections"}
+      render json: {error: "Please fill out all sections."}
     end
   end
 
