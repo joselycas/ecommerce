@@ -133,14 +133,14 @@ onPasswordChange = (e) => {
           <div className="input-group">
           <Form.Row>
             <Col>
-              <Form.Label htmlFor="username">Username</Form.Label>
+              <Form.Label htmlFor="name">Username</Form.Label>
               <Form.Control
                 type="text"
-                name="username"
+                name="name"
                 className="login-input"
                 placeholder="Username"
                 onChange={this.onUsernameChange}
-                value={this.state.username}
+                value={this.state.name}
                 />
                 <small className="danger-error">{usernameErr ? usernameErr : ""}</small>
             </Col>

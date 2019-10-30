@@ -16,6 +16,7 @@ class User extends React.Component {
   }
 
 
+
   componentWillMount(nextProps, nextState){
     //commented this out because nextState was causing an error
     // localStorage.setItem("user", JSON.stringify(nextState.currentUser))
