@@ -1,8 +1,14 @@
 class ApplicationController < ActionController::API
-  include ::ActionController::Cookies
+  # skip_before_action :verify_authenticity_token
+  # include ::ActionController::Cookies
 
    def find_current_user
-     User.find_by(id: session[:user_id])
+    code = JWT.decode(request.headers[:auth], Rails.application.secrets.secret_key_base)
+    # acess id from decoded object
+    user_id = code[0]["id"]
+    User.find_by(id: user_id)
+
+     # User.find_by(id: session[:user_id])
    end
 
    def logged_in?
