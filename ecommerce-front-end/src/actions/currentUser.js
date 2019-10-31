@@ -7,7 +7,7 @@ export const setCurrentUser = user => {
 
 export const currentUser = () => {
   return dispatch => {
-    return fetch("http://localhost:3001/api/v1/current_user", {
+    return fetch("http://localhost:3000/api/v1/current_user", {
       formData: "include",
       method: "GET",
       headers: {

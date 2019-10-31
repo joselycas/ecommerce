@@ -1,35 +1,44 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {currentUser} from '../actions/currentUser'
+import {setCurrentUser} from '../actions/currentUser'
 
 class User extends React.Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      currentUser: []
-    }
-  }
 
   componentDidMount(){
-    this.props.currentUser()
+
+    let token = localStorage.getItem("jwtToken")
+    if (token){
+      //send to backend
+      fetch('http://localhost:3000/api/v1/current_user', {
+        method:'GET',
+        headers: {
+          auth: token
+        }
+      })
+        .then(res => res.json())
+        .then(user => this.props.setCurrentUser(user));
+    }
+
   }
 
 
 
-  componentWillMount(nextProps, nextState){
-    //commented this out because nextState was causing an error
-    // localStorage.setItem("user", JSON.stringify(nextState.currentUser))
-  }
+  // componentWillMount(nextProps, nextState){
+  //   //commented this out because nextState was causing an error
+  //   // localStorage.setItem("user", JSON.stringify(nextState.currentUser))
+  // }
 
 
 
 
   render(){
-    console.log(this.state)
+    console.log("loggedInUser", this.props.loggedInUser)
+      console.log("currentUser", this.props.currentUser)
   return (
     <div>
-      <h1>Hi {this.props.currentUser.name} </h1>
+      <h1>Hi {this.props.loggedInUser.currentUser ? this.props.loggedInUser.currentUser.name : null} </h1>
 
     </div>
   )
@@ -40,13 +49,14 @@ class User extends React.Component {
 
   const mapDispatchToProps = (dispatch) => {
     return {
-      currentUser: () => dispatch(currentUser())
+      currentUser: () => dispatch(currentUser()),
+      setCurrentUser: (user) => dispatch(setCurrentUser(user))
     }
   }
 
   const mapStateToProps = state => {
     return{
-      currentUser: state.user
+      loggedInUser: state.currentUser
     }
   }
 
