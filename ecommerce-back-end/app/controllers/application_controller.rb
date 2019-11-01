@@ -7,8 +7,6 @@ class ApplicationController < ActionController::API
     # acess id from decoded object
     user_id = code[0]["id"]
     User.find_by(id: user_id)
-
-     # User.find_by(id: session[:user_id])
    end
 
    def logged_in?
