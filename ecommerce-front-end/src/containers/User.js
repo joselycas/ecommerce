@@ -5,9 +5,7 @@ import {setCurrentUser} from '../actions/currentUser'
 
 class User extends React.Component {
 
-
   componentDidMount(){
-
     let token = localStorage.getItem("jwtToken")
     if (token){
       //send to backend
@@ -24,18 +22,9 @@ class User extends React.Component {
   }
 
 
-
-  // componentWillMount(nextProps, nextState){
-  //   //commented this out because nextState was causing an error
-  //   // localStorage.setItem("user", JSON.stringify(nextState.currentUser))
-  // }
-
-
-
-
   render(){
-    console.log("loggedInUser", this.props.loggedInUser)
-      console.log("currentUser", this.props.currentUser)
+    // console.log("loggedInUser", this.props.loggedInUser)
+    //   console.log("currentUser", this.props.currentUser)
   return (
     <div>
       <h1>Hi {this.props.loggedInUser.currentUser ? this.props.loggedInUser.currentUser.name : null} </h1>

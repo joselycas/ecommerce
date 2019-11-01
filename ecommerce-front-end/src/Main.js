@@ -8,6 +8,7 @@ import Cart from './containers/Cart'
 import Register from './containers/Register'
 import ToggleForm from './containers/ToggleForm'
 import User from './containers/User'
+import Logout from './components/Logout'
 
 
 
@@ -20,7 +21,7 @@ class Main extends Component {
             <Route path='/home' component={Home} />
             <Route path='/register' component={Register}/>
             <Route path='/login' component={Login}/>
-            <Route path='/logout'/>
+            <Route path='/logout' component={Logout}/>
             <Route path='/producrs' component={ProductPage}/>
             <Route path='/cart' component={Cart}/>
             <Route path='/toggleForm' component={ToggleForm}/>

@@ -19,9 +19,12 @@ export const currentUser = () => {
       dispatch({
       type: 'CURRENT_USER',
       user
-
     });
+   });
+ };
+};
 
-  });
-  }
+
+export const logOut = () => {
+  
 }
