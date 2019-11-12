@@ -1,4 +1,5 @@
 import {BrowserRouter} from 'react-router-dom';
+import {setCurrentUser} from './currentUser'
 
 
 export function register(formData, history) {
@@ -16,11 +17,10 @@ export function register(formData, history) {
     if (user.error) {
         alert(user.error)
     }else {
-      dispatch({
-      type: 'ADD_USER',
-      payload: formData
-      })
-      history.push(`/users/${user.id}`)
+      const token = user.jwt
+      localStorage.setItem("jwtToken", token)
+      dispatch(setCurrentUser(user))
+      history.push(`/users/${user.user_id}`)
     }
   })
  }
