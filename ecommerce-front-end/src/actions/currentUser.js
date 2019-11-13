@@ -5,6 +5,12 @@ export const setCurrentUser = user => {
   }
 }
 
+export const clearCurrentUser = user => {
+  return{
+    type: "CLEAR_CURRENT_USER"
+  }
+}
+
 export const currentUser = () => {
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/current_user", {
@@ -23,8 +29,3 @@ export const currentUser = () => {
    });
  };
 };
-
-
-export const logOut = () => {
-  
-}

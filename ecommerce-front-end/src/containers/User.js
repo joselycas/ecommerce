@@ -23,11 +23,12 @@ class User extends React.Component {
 
 
   render(){
-    // console.log("loggedInUser", this.props.loggedInUser)
-    //   console.log("currentUser", this.props.currentUser)
+    console.log("loggedInUser", this.props.loggedInUser)
+      console.log("currentUser", this.props.currentUser)
   return (
     <div>
       <h1>Hi {this.props.loggedInUser.currentUser ? this.props.loggedInUser.currentUser.name : null} </h1>
+      <p>Shop on! Products </p>
 
     </div>
   )
