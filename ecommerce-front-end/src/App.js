@@ -14,7 +14,7 @@ class App extends React.Component {
 
       <div className="App">
         <header className="App-header">
-          Jos Castro's Portfolio
+          Welcome to KBH discounted Kitchen and Bath Products
         </header>
           <NavBar/>
           <Main/>
